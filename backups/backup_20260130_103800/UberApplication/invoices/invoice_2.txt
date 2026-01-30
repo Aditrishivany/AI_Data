@@ -1,0 +1,10 @@
+UBER INVOICE
+Trip ID: 2
+User: Aditri
+Driver: Ashwin
+Source: hyderabad
+Destination: pune
+Fare: Rs.6720
+Status: waiting
+Feedback: Not Given
+Generated: 2026-01-29 12:06:08.039941

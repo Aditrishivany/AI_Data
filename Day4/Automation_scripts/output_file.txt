@@ -1,0 +1,58 @@
+=== Disk Usage Report ===
+Total: 330 GB
+Used: 50 GB
+Free: 279 GB
+
+=== Backup Created ===
+Backup Path: D:\Users\Admin\Desktop\AI&Data\backups\backup_20260130_112800
+Time: 2026-01-30 11:28:00.694164
+
+=== Extracted Errors ===
+2026-01-30 10:05:10 ERROR Failed to connect to database
+2026-01-30 10:08:19 error Unable to load user preferences
+2026-01-30 10:14:26 Error Invalid authentication attempt
+2026-01-30 10:18:42 ERROR Payment gateway timeout
+
+=== System Resource Report ===
+CPU Usage: 6.1%
+Memory Total: 15 GB
+Memory Used: 8 GB
+Memory Free: 7 GB
+Disk Total: 330 GB
+Disk Used: 50 GB
+Disk Free: 279 GB
+
+=== CSV Report ===
+CPU: 0.0% | Mem Used: 9784565760 | Mem Free: 6920556544 | Disk Used: 54243614720 | Disk Free: 300578770944
+
+=== Password Checker ===
+Password: Adi3shivany@2005 | Strength: Very Strong
+
+=== Ping Server Report ===
+8.8.8.8: Not Reachable
+1.1.1.1: Not Reachable
+google.com: Reachable
+
+=== File Renamer ===
+Renamed file:
+D:\Users\Admin\Desktop\AI&Data\Day4\Automation_scripts\outputs_file.txt --> D:\Users\Admin\Desktop\AI&Data\Day4\Automation_scripts\output_file.txt
+
+=== File Manager Report ===
+Moved: backup.zip --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\zip
+Moved: data.csv --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\csv
+Moved: image1.jpg --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\jpg
+Moved: image2.png --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\png
+Moved: info.json --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\json
+Moved: logfile.log --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\log
+Moved: notes.txt --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\txt
+Moved: report.docx --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\docx
+Moved: resume.pdf --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\pdf
+Moved: script.py --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\py
+Moved: slides.pptx --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\pptx
+Moved: song.mp3 --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\mp3
+Moved: video.mp4 --> D:\Users\Admin\Desktop\AI&Data\Day4\file_manager_source\mp4
+File organization completed.
+
+=== Folder Cleanup Report ===
+No files deleted.
+

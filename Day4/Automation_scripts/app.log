@@ -1,0 +1,11 @@
+2026-01-30 10:01:12 INFO User logged in successfully
+2026-01-30 10:03:45 WARNING Disk space reaching threshold
+2026-01-30 10:05:10 ERROR Failed to connect to database
+2026-01-30 10:06:33 INFO Scheduled backup completed
+2026-01-30 10:08:19 error Unable to load user preferences
+2026-01-30 10:10:52 DEBUG Cache refreshed
+2026-01-30 10:12:14 CRITICAL System overload detected
+2026-01-30 10:14:26 Error Invalid authentication attempt
+2026-01-30 10:17:05 INFO File uploaded
+2026-01-30 10:18:42 ERROR Payment gateway timeout
+2026-01-30 10:20:10 INFO Job finished successfully

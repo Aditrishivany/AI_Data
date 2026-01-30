@@ -1,0 +1,11 @@
+MOVIE TICKET
+Name: Varshitha
+Age: 55
+Phone: 90******78
+Movie: Salaar
+Time: 7:30 PM
+Seats: 2
+Seat_type: Premium
+Snacks: Pizza
+Total: Rs.450
+

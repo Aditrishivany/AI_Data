@@ -1,0 +1,10 @@
+UBER INVOICE
+Trip ID: 1
+User: Aditri
+Driver: Ramesh
+Source: hyderabad
+Destination: chennai
+Fare: Rs.7560
+Status: completed
+Feedback: good
+Generated: 2026-01-29 12:23:36.337842
