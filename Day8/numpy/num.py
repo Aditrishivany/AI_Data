@@ -135,3 +135,11 @@ print(exam_avg)
 
 print("\nStudents with average marks greater than 75:")
 print(student_avg > 75)
+top_student_index = np.argmax(student_avg)
+print("\nTop scorer student index:")
+print(top_student_index)
+fail_exam=marks<60
+print(fail_exam)
+grace_marks=marks+5
+grace_marks=np.clip(grace_marks,0,100)
+print('grace marks: ', grace_marks)
