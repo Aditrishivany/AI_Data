@@ -50,11 +50,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Prepare lowercase image owner
+        id: vars
+        run: echo "owner_lc=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_OUTPUT
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
           context: ${{ env.PROJECT_DIR }}
           push: ${{ github.event_name == 'push' }}
           tags: |
-            ghcr.io/${{ github.repository_owner }}/inventory-order-system:latest
-            ghcr.io/${{ github.repository_owner }}/inventory-order-system:${{ github.sha }}
+            ghcr.io/${{ steps.vars.outputs.owner_lc }}/inventory-order-system:latest
+            ghcr.io/${{ steps.vars.outputs.owner_lc }}/inventory-order-system:${{ github.sha }}
