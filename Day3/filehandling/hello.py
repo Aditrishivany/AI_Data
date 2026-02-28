@@ -1,0 +1,13 @@
+file=open("notes.txt","w")
+file.write("Welcome to python file handling!\n")
+file.write("this is a sample file.\n")
+file.close()
+file=open("notes.txt","r")
+content=file.read()
+#print(content)
+file=open("notes.txt","a")
+file.write("This line is appended to the file.\n")
+file.close()
+with open("notes.txt","r") as file:
+    content=file.read()
+    print(content)

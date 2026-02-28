@@ -1,0 +1,7 @@
+Netflix Dataset Analysis Report
+
+1. Majority of content are Movies.
+2. Significant growth after 2015.
+3. Peak content release around 2019–2020.
+4. Average release year is around XXXX.
+5. Content distribution shows upward trend over years.

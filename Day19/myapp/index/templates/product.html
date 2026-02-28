@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <h2>Product List</h2>
+
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="/product/{{ product.id }}/">
+                    {{ product.name }} - ₹{{ product.price }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/logout/">Logout</a>
+</body>
+</html>

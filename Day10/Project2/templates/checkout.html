@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="fade-in">
+
+<div class="container">
+
+    <div class="card shadow p-4 mt-4" style="border-radius: 16px;">
+
+        <h2 class="fw-bold mb-4">Order Summary</h2>
+
+        <!-- Purchased Items -->
+        {% for p in products %}
+        <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+            <span class="fw-semibold">{{ p.name }}</span>
+            <span class="fw-bold text-success">₹{{ p.price }}</span>
+        </div>
+        {% endfor %}
+
+        <!-- Total -->
+        <h3 class="mt-4 text-success fw-bold">Total Paid: ₹{{ total }}</h3>
+
+        <!-- Success Message -->
+        <div class="alert alert-success mt-4" style="border-radius: 12px;">
+            <strong>Checkout Complete! 🎉</strong><br>
+            Thank you for your purchase.  
+            Your items will be processed shortly.
+        </div>
+
+        <!-- Continue Shopping -->
+        <a href="{{ url_for('products') }}" 
+           class="btn btn-gradient mt-3 px-4 py-2">
+            ← Continue Shopping
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}

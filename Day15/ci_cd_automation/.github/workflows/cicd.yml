@@ -1,0 +1,42 @@
+name: Python CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pytest and unittest
+        run: PYTHONPATH=.pytest tests && python -m unittest discover tests
+
+      # - name: Run unittest
+      #   run: python -m unittest discover tests
+
+      - name: Build project
+        run: zip -r build.zip .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-build
+          path: build.zip
+
+      - name: Deploy
+        run: python deploy.py

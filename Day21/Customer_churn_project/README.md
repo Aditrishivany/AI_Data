@@ -1,0 +1,1 @@
+Run training, then uvicorn app.api:app --reload

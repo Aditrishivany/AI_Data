@@ -1,0 +1,7 @@
+{
+    "filesProcessed": 200,
+    "baselineSeconds": 6.78667,
+    "optimizedSeconds": 0.05086,
+    "speedupX": 133.443,
+    "methodUsed": "threading"
+}

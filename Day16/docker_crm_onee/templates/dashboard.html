@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-content">
+    <h1>Welcome, {{ username }}! 👋</h1>
+    <p>You have successfully logged in</p>
+    
+    <div class="button-group">
+        <a href="{{ url_for('profile') }}">View Profile</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
+{% endblock %}

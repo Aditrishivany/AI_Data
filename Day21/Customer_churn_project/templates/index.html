@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Customer Churn Prediction</h2>
+
+<form action="/predict" method="POST">
+    <input type="text" name="tenure" placeholder="Tenure">
+    <input type="text" name="MonthlyCharges" placeholder="Monthly Charges">
+    <input type="text" name="TotalCharges" placeholder="Total Charges">
+    <button type="submit">Predict</button>
+</form>
+
+{% if result is not none %}
+<h3>Prediction: {{ result }}</h3>
+{% endif %}
+
+<br>
+<a href="/patterns">View Data Patterns</a>
+
+</body>
+</html>

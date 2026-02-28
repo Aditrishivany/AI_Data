@@ -1,0 +1,4 @@
+studentid,name,attendancepercent,avgmarks,status
+1,0,50.0,57.5,PASS
+2,1,100.0,20.0,FAIL
+3,2,100.0,80.0,PASS

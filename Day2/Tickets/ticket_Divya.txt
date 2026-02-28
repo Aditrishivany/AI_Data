@@ -1,0 +1,11 @@
+MOVIE TICKET
+Name: Divya
+Age: 39
+Phone: 78******56
+Movie: Animal
+Time: 10:00 AM
+Seats: 5
+Seat_type: Gold
+Snacks: 3, Popcorn
+Total: Rs.720
+

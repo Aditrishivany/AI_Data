@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row mt-4 gx-5">
+
+  <!-- Product Image -->
+  <div class="col-md-5 text-center">
+    {% if product.image %}
+      {% if product.image.startswith('http') %}
+        <img src="{{ product.image }}"
+             class="img-fluid rounded shadow-lg mb-4"
+             style="max-height:450px; object-fit:cover;">
+      {% else %}
+        <img src="{{ url_for('static', filename='uploads/' + product.image) }}"
+             class="img-fluid rounded shadow-lg mb-4"
+             style="max-height:450px; object-fit:cover;">
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <!-- Product Info -->
+  <div class="col-md-7">
+    <h1 class="fw-bold mb-3">{{ product.name }}</h1>
+
+    <p class="text-secondary">
+      {{ product.description }}
+    </p>
+
+    <h2 class="text-success fw-bold mt-4 mb-4">₹{{ product.price }}</h2>
+
+    <!-- Buttons -->
+    <div class="d-flex gap-3">
+
+      <a href="{{ url_for('products') }}"
+         class="btn btn-outline-secondary">
+         ← Back
+      </a>
+
+      <a href="{{ url_for('add_to_cart', product_id=product.id) }}"
+         class="btn btn-primary">
+         Add to Cart
+      </a>
+
+      {% if current_user.is_authenticated and current_user.is_admin %}
+      <a href="{{ url_for('delete_product', product_id=product.id) }}"
+         class="btn btn-danger">
+         Delete Product
+      </a>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

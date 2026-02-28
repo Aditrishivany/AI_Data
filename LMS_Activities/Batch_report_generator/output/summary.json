@@ -1,0 +1,24 @@
+{
+    "totalStudents": 3,
+    "avgAttendance": 83.33333333333333,
+    "avgMarks": 52.5,
+    "passCount": 2,
+    "failCount": 1,
+    "top3Students": [
+        {
+            "studentid": "3",
+            "name": 2,
+            "avgmarks": 80.0
+        },
+        {
+            "studentid": "1",
+            "name": 0,
+            "avgmarks": 57.5
+        },
+        {
+            "studentid": "2",
+            "name": 1,
+            "avgmarks": 20.0
+        }
+    ]
+}

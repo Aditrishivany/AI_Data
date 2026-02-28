@@ -1,0 +1,34 @@
+[
+    {
+        "type": "Electronics",
+        "pid": "1",
+        "name": "IPhone",
+        "price": 50000.0,
+        "stock": 50,
+        "warranty": "3"
+    },
+    {
+        "type": "Electronics",
+        "pid": "2",
+        "name": "Laptop",
+        "price": 75000.0,
+        "stock": 26,
+        "warranty": "4"
+    },
+    {
+        "type": "Electronics",
+        "pid": "3",
+        "name": "Refridgerator",
+        "price": 25000.0,
+        "stock": 102,
+        "warranty": "1"
+    },
+    {
+        "type": "Grocery",
+        "pid": "4",
+        "name": "Milk",
+        "price": 28.0,
+        "stock": 19,
+        "expiry": "17-02-2024"
+    }
+]

@@ -1,0 +1,10 @@
+UBER INVOICE
+Trip ID: 3
+User: Aditri
+Driver: Ramesh
+Source: pune
+Destination: hyderabad
+Fare: Rs.6720
+Status: waiting
+Feedback: Not Given
+Generated: 2026-01-29 12:07:35.575133

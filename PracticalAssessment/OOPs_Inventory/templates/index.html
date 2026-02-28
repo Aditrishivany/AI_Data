@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h1>Inventory Dashboard</h1>
+
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+
+    <form method="POST" action="/search">
+        <input type="text" name="keyword" placeholder="Search by name">
+        <button type="submit">Search</button>
+    </form>
+
+    <a href="/add" class="btn">Add Product</a>
+
+</div>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Price</th>
+<th>Stock</th>
+<th>Actions</th>
+</tr>
+
+{% for product in products %}
+<tr>
+<td>{{ product.get_id() }}</td>
+<td>{{ product.get_name() }}</td>
+<td>{{ product.get_price() }}</td>
+<td>{{ product.get_stock() }}</td>
+<td>
+<a href="/delete/{{ product.get_id() }}">Delete</a>
+
+<form action="/update/{{ product.get_id() }}" method="POST" style="display:inline;">
+<input type="number" name="qty" placeholder="+/-" required>
+<button type="submit">Update</button>
+</form>
+
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

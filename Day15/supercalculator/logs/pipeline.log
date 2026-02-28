@@ -1,0 +1,9 @@
+2026-02-16 10:26:28,590 - INFO - Pipeline started
+2026-02-16 10:26:28,590 - INFO - Installing dependencies
+2026-02-16 10:27:04,765 - INFO - Running pytest
+2026-02-16 10:27:06,515 - ERROR - Command failed: pytest
+2026-02-16 10:33:46,576 - INFO - Pipeline started
+2026-02-16 10:33:46,577 - INFO - Installing dependencies
+2026-02-16 10:33:49,079 - INFO - Running pytest
+2026-02-16 10:33:49,899 - INFO - Building artifact
+2026-02-16 10:33:49,953 - INFO - Pipeline completed successfully

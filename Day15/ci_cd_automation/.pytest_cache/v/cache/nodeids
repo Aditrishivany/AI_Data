@@ -1,0 +1,7 @@
+[
+  "tests/test_pytest.py::test_add",
+  "tests/test_pytest.py::test_api",
+  "tests/test_pytest.py::test_subtract",
+  "tests/test_unittest.py::TestCalculator::test_add",
+  "tests/test_unittest.py::TestCalculator::test_subtract"
+]

@@ -1,0 +1,285 @@
+ 1. Introduction
+
+ 1.1 What is CI/CD
+
+CI/CD stands for:
+
+ CI — Continuous Integration
+ CD — Continuous Delivery / Continuous Deployment
+
+It is a process used in software development to automatically build, test, and deploy code changes.
+
+ Continuous Integration (CI)
+
+Continuous Integration is the practice of automatically integrating code changes into a shared repository and verifying them through automated builds and tests.
+
+Key goals:
+
+ Detect bugs early
+ Ensure code works correctly
+ Maintain stable codebase
+
+Example workflow:
+
+1. Developer writes code
+2. Developer pushes code to Git repository
+3. CI system automatically:
+
+    Pulls the code
+    Installs dependencies
+    Runs tests
+    Reports success/failure
+
+---
+
+ Continuous Delivery (CD)
+
+Continuous Delivery ensures that the code is always in a deployable state.
+
+It automatically:
+
+ Builds the application
+ Packages it
+ Prepares it for deployment
+
+Deployment may require manual approval.
+
+---
+
+ Continuous Deployment (CD)
+
+Continuous Deployment goes one step further and automatically deploys the application without manual intervention.
+
+Example:
+
+```
+Code Push → Test → Build → Deploy → Live automatically
+```
+
+---
+
+ Simple CI/CD Pipeline Flow
+
+```
+Developer → Git Push → CI (Test) → Build → Deploy → Production
+```
+
+---
+
+ 1.2 Importance of CI/CD in Modern Development
+
+CI/CD is essential in modern software development for the following reasons:
+
+ 1. Faster Development
+
+ Automates repetitive tasks
+ Reduces manual work
+ Speeds up release cycles
+
+ 2. Early Bug Detection
+
+ Automated tests detect bugs immediately
+ Prevents broken code from reaching production
+
+ 3. Improved Code Quality
+
+ Enforces testing and validation
+ Ensures stable code
+
+ 4. Reduced Deployment Risk
+
+ Automated deployment reduces human error
+ Ensures consistent deployment process
+
+ 5. Faster Feedback
+
+ Developers know quickly if code works or fails
+
+ 6. Automation
+
+Eliminates manual tasks like:
+
+ Running tests
+ Building applications
+ Deploying applications
+
+---
+
+ 1.3 Why Use Python for CI/CD
+
+Python is an excellent choice for building CI/CD pipelines because of its simplicity and powerful automation capabilities.
+
+ 1. Easy to Learn and Use
+
+Python has simple syntax:
+
+```python
+print("Running pipeline")
+```
+
+Compared to complex shell scripts, Python is easier to maintain.
+
+---
+
+ 2. Strong Automation Capabilities
+
+Python can automate:
+
+ Running tests
+ Building applications
+ Copying files
+ Deploying applications
+ Monitoring systems
+
+Example:
+
+```python
+import subprocess
+subprocess.run(["pytest"])
+```
+
+---
+
+ 3. Cross-Platform Support
+
+Python works on:
+
+ Windows
+ Linux
+ macOS
+
+No need to rewrite scripts.
+
+---
+
+ 4. Large Ecosystem of Libraries
+
+Useful libraries include:
+
+ subprocess → run commands
+ os → file operations
+ shutil → copy files
+ pytest → testing
+ requests → API calls
+ fabric → remote deployment
+
+---
+
+ 5. Easy Integration with Tools
+
+Python integrates with:
+
+ Git
+ Docker
+ Cloud services
+ Servers
+
+---
+
+ 6. Better Error Handling
+
+Python provides clear error handling:
+
+```python
+try:
+    run_pipeline()
+except Exception as e:
+    print(e)
+```
+
+---
+
+ 1.4 Overview of Python-Based Automation
+
+Python automation means using Python scripts to perform tasks automatically without manual intervention.
+
+In a Python-based CI/CD pipeline, Python controls the entire workflow.
+
+---
+
+ Typical Python CI/CD Pipeline Flow
+
+```
+Step 1: Pull latest code
+Step 2: Install dependencies
+Step 3: Run tests
+Step 4: Build application
+Step 5: Deploy application
+Step 6: Log results
+```
+
+---
+
+ Example Python Pipeline Script
+
+```python
+import subprocess
+
+def install_dependencies():
+    subprocess.run(["pip", "install", "-r", "requirements.txt"])
+
+def run_tests():
+    subprocess.run(["pytest"])
+
+def build():
+    print("Building application...")
+
+def deploy():
+    print("Deploying application...")
+
+def main():
+    install_dependencies()
+    run_tests()
+    build()
+    deploy()
+    print("Pipeline completed successfully")
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+ Tasks Python Can Automate in CI/CD
+
+ Pull code from Git
+ Install dependencies
+ Run tests
+ Build artifacts
+ Deploy applications
+ Restart services
+ Monitor deployment
+ Generate logs
+
+---
+
+ Advantages of Python Automation
+
+ Simple and readable
+ Highly customizable
+ Easy debugging
+ Platform independent
+ Powerful automation
+
+
+
+PYTHONPATH=. pytest
+python -m unittest discover tests
+
+Code Change
+   ↓
+Watchdog detects change
+   ↓
+Pipeline starts
+   ↓
+Install dependencies
+   ↓
+Run pytest
+   ↓
+Run unittest
+   ↓
+Build project
+   ↓
+Deploy project
+   ↓
+Log result

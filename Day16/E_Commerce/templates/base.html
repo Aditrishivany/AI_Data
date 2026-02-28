@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>ShopApp</title>
+
+    <!-- Bootstrap Theme -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- ================================
+         GLOBAL CUSTOM STYLES
+    ================================= -->
+    <style>
+      /* ---- Typography ---- */
+      body, h1, h2, h3, h4, h5, h6 {
+          font-family: "Poppins", sans-serif;
+      }
+
+      /* ---- Page Fade-in Animation ---- */
+      .fade-in {
+          animation: fadeIn 0.6s ease;
+      }
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ---- Product Card Hover ---- */
+      .product-card {
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+          border-radius: 12px;
+      }
+      .product-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      }
+
+      .product-image {
+          height: 230px;
+          object-fit: cover;
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+      }
+
+      /* ---- Theme Colors ---- */
+
+      /* Light Mode (Default) */
+      :root {
+          --bg: #F8F9FB;
+          --text: #222;
+          --card-bg: #fff;
+          --nav-bg: #ffffff;
+          --nav-text: #000;
+          --footer-bg: #efefef;
+      }
+
+      /* Dark Mode */
+      [data-theme="dark"] {
+          --bg: #1a1a1a;
+          --text: #f1f1f1;
+          --card-bg: #2A2A2A;
+          --nav-bg: #111;
+          --nav-text: #fff;
+          --footer-bg: #000;
+      }
+
+      /* Minimal Gray Luxury Mode */
+      [data-theme="luxury"] {
+          --bg: #ECECEC;
+          --text: #111;
+          --card-bg: #FFFFFF;
+          --nav-bg: #F7F7F7;
+          --nav-text: #000;
+          --footer-bg: #DDD;
+      }
+
+      /* Apply Theme Variables */
+      body {
+          background: var(--bg);
+          color: var(--text);
+          transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .navbar {
+          background: var(--nav-bg) !important;
+      }
+      .navbar a {
+          color: var(--nav-text) !important;
+      }
+
+      .card {
+          background: var(--card-bg);
+      }
+
+      footer {
+          background: var(--footer-bg);
+          padding: 20px;
+          margin-top: 40px;
+          text-align: center;
+          color: var(--text);
+      }
+
+      /* ---- Gradient Buttons ---- */
+      .btn-gradient {
+          background: linear-gradient(45deg, #6a11cb, #2575fc);
+          color: white !important;
+          border: none;
+      }
+      .btn-gradient:hover {
+          opacity: 0.9;
+      }
+    </style>
+
+</head>
+
+<body class="container fade-in">
+
+<!-- ================================
+     NAVBAR WITH THEME TOGGLE
+================================= -->
+<nav class="navbar navbar-expand-lg shadow-sm rounded mb-4">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="{{ url_for('products') }}">ShopApp</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto">
+
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('products') }}">Products</a></li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('cart') }}">
+            Cart
+            {% if session.get('cart') %}
+              <span class="badge bg-primary">{{ session.get('cart')|length }}</span>
+            {% endif %}
+          </a>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('checkout') }}">Checkout</a></li>
+
+        {% if current_user.is_authenticated and current_user.is_admin %}
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('add_product') }}">Add Product</a></li>
+        {% endif %}
+      </ul>
+
+      <!-- RIGHT SIDE -->
+      <ul class="navbar-nav align-items-center">
+
+        {% if current_user.is_authenticated %}
+        <li class="nav-item">
+          <span class="nav-link">Hi, {{ current_user.username }}</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="{{ url_for('logout') }}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
+
+        <!-- THEME SWITCHER -->
+        <li class="nav-item ms-3">
+          <select id="themeSwitcher" class="form-select form-select-sm">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="luxury">Luxury</option>
+          </select>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+{% block content %}{% endblock %}
+
+<!-- FOOTER -->
+<footer>
+  © 2026 ShopApp — All Rights Reserved
+</footer>
+
+<!-- ================================
+     THEME SCRIPT (LocalStorage)
+================================= -->
+<script>
+  const themeSwitcher = document.getElementById("themeSwitcher");
+  const html = document.documentElement;
+
+  const savedTheme = localStorage.getItem("theme") || "light";
+  html.setAttribute("data-theme", savedTheme);
+  themeSwitcher.value = savedTheme;
+
+  themeSwitcher.addEventListener("change", function () {
+      html.setAttribute("data-theme", this.value);
+      localStorage.setItem("theme", this.value);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <div class="card shadow p-4 mt-4">
+
+    <h2 class="fw-bold mb-4">Payment</h2>
+
+    <h5 class="mb-3">Amount to Pay: ₹{{ total }}</h5>
+
+    <form method="POST">
+
+      <div class="mb-3">
+        <label class="form-label fw-semibold">
+          Select Payment Method
+        </label>
+
+        <select class="form-select" name="method" required>
+          <option value="">Choose...</option>
+          <option>Credit/Debit Card</option>
+          <option>UPI</option>
+          <option>Net Banking</option>
+          <option>Cash on Delivery</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success w-100 py-2 mt-3">
+        Pay Now
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

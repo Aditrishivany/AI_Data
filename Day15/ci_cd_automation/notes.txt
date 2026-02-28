@@ -1,0 +1,508 @@
+
+
+ 1. Introduction to GitHub Actions
+
+ 1.1 What is GitHub Actions
+
+ Automation platform inside GitHub
+ Used for CI/CD and workflow automation
+
+ 1.2 Why Use GitHub Actions
+
+ Automates build, test, deploy
+ No external CI tool needed
+ Integrated with GitHub repositories
+
+ 1.3 Benefits
+
+ Built-in CI/CD
+ Cloud hosted runners
+ Easy integration
+ Event-driven automation
+
+---
+
+ 2. Core Concepts
+
+ 2.1 Workflow
+
+ Automated process defined in YAML
+
+Example:
+
+```
+.github/workflows/main.yml
+```
+
+ 2.2 Events
+
+Triggers that start workflows
+
+Examples:
+
+ push
+ pull_request
+ workflow_dispatch
+ schedule
+
+Example:
+
+```yaml
+on: push
+```
+
+---
+
+ 2.3 Jobs
+
+ A workflow contains jobs
+ Jobs run on runners
+
+Example:
+
+```yaml
+jobs:
+  build:
+```
+
+---
+
+ 2.4 Steps
+
+ Jobs contain steps
+
+Example:
+
+```yaml
+steps:
+  - name: Checkout code
+```
+
+---
+
+ 2.5 Actions
+
+Reusable automation units
+
+Examples:
+
+ checkout action
+ setup-python action
+
+---
+
+ 2.6 Runners
+
+Machines that execute workflows
+
+Types:
+
+ GitHub hosted runner
+ Self-hosted runner
+
+Example:
+
+```yaml
+runs-on: ubuntu-latest
+```
+
+---
+
+ 3. Workflow File Structure
+
+ 3.1 Folder Structure
+
+```
+.github/
+ └── workflows/
+      └── pipeline.yml
+```
+
+---
+
+ 3.2 Basic Workflow Example
+
+```yaml
+name: Python CI Pipeline
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+
+      - name: Run script
+        run: python app.py
+```
+
+---
+
+ 4. Events and Triggers
+
+ 4.1 Push Event
+
+```yaml
+on: push
+```
+
+---
+
+ 4.2 Pull Request Event
+
+```yaml
+on: pull_request
+```
+
+---
+
+ 4.3 Manual Trigger
+
+```yaml
+on: workflow_dispatch
+```
+
+---
+
+ 4.4 Scheduled Trigger
+
+```yaml
+on:
+  schedule:
+    - cron: '0 0   '
+```
+
+Runs daily.
+
+---
+
+ 5. Jobs and Steps
+
+ 5.1 Single Job Workflow
+
+ 5.2 Multiple Jobs Workflow
+
+```yaml
+jobs:
+  test:
+  build:
+  deploy:
+```
+
+---
+
+ 5.3 Job Dependencies
+
+```yaml
+deploy:
+  needs: build
+```
+
+---
+
+ 6. Using Actions
+
+ 6.1 Official Actions
+
+Examples:
+
+```
+actions/checkout
+actions/setup-python
+actions/setup-node
+```
+
+---
+
+ 6.2 Marketplace Actions
+
+GitHub Marketplace contains thousands of actions.
+
+---
+
+ 7. Running Python in GitHub Actions
+
+ 7.1 Setup Python
+
+```yaml
+- uses: actions/setup-python@v4
+  with:
+    python-version: '3.11'
+```
+
+---
+
+ 7.2 Install Dependencies
+
+```yaml
+- run: pip install -r requirements.txt
+```
+
+---
+
+ 7.3 Run Tests
+
+```yaml
+- run: pytest
+```
+
+---
+
+ 8. Environment Variables
+
+ 8.1 Define Environment Variables
+
+```yaml
+env:
+  NAME: value
+```
+
+---
+
+ 8.2 Use Environment Variables
+
+```yaml
+run: echo $NAME
+```
+
+---
+
+ 9. Secrets Management
+
+ 9.1 GitHub Secrets
+
+Used to store sensitive data:
+
+ passwords
+ tokens
+ API keys
+
+Example:
+
+```
+Settings → Secrets → Actions
+```
+
+---
+
+ 9.2 Use Secret in Workflow
+
+```yaml
+env:
+  TOKEN: ${{ secrets.TOKEN }}
+```
+
+---
+
+ 10. Matrix Builds
+
+Run jobs in multiple environments
+
+Example:
+
+```yaml
+strategy:
+  matrix:
+    python-version: [3.9, 3.10, 3.11]
+```
+
+---
+
+ 11. Artifacts
+
+Save files from workflows
+
+Example:
+
+```yaml
+- uses: actions/upload-artifact@v4
+```
+
+---
+
+ 12. Deployment Automation
+
+Deploy to:
+
+ Server
+ AWS
+ Azure
+ Docker
+ Kubernetes
+
+Example:
+
+```yaml
+- run: python deploy.py
+```
+
+---
+
+ 13. Self-hosted Runners
+
+Run workflows on your own server.
+
+Benefits:
+
+ Full control
+ Custom environment
+
+---
+
+ 14. Workflow Commands
+
+Examples:
+
+```
+echo
+export
+set-env
+```
+
+---
+
+ 15. Conditional Execution
+
+Example:
+
+```yaml
+if: github.ref == 'refs/heads/main'
+```
+
+---
+
+ 16. Notifications
+
+Send notifications via:
+
+ Email
+ Slack
+ Discord
+
+---
+
+ 17. Caching Dependencies
+
+Example:
+
+```yaml
+- uses: actions/cache@v4
+```
+
+Improves speed.
+
+---
+
+ 18. Custom Actions
+
+Create your own reusable actions.
+
+Types:
+
+ JavaScript actions
+ Docker actions
+ Composite actions
+
+---
+
+ 19. CI Pipeline with GitHub Actions
+
+Steps:
+
+```
+Checkout code
+Install dependencies
+Run tests
+Build project
+Deploy project
+```
+
+---
+
+ 20. CD Pipeline with GitHub Actions
+
+Steps:
+
+```
+Build
+Package
+Deploy
+Verify deployment
+```
+
+---
+
+ 21. Monitoring and Logs
+
+GitHub provides:
+
+ Logs
+ Execution time
+ Status
+
+---
+
+ 22. Security Best Practices
+
+ Use secrets
+ Avoid hardcoding passwords
+ Use minimal permissions
+
+---
+
+ 23. Real-World Python CI/CD Example Topics
+
+ Run pytest automatically
+ Build Python package
+ Deploy to server
+ Monitor workflow
+
+---
+
+ 24. Advanced Topics
+
+ Reusable workflows
+ Composite actions
+ Docker integration
+ Kubernetes deployment
+ Multi-environment deployment
+
+---
+
+ 25. Integration Topics
+
+GitHub Actions integrates with:
+
+ Docker
+ AWS
+ Azure
+ GCP
+ Jenkins
+ Kubernetes
+
+---
+
+ 26. Automation Use Cases
+
+ CI/CD pipelines
+ Auto testing
+ Auto deployment
+ Scheduled jobs
+ Code quality checks
+
+---
+
+ 27. Best Practices
+
+ Keep workflows simple
+ Use caching
+ Use secrets
+ Use reusable workflows
+
+---
+

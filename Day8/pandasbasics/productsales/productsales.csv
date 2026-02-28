@@ -1,0 +1,10 @@
+day,product,price,quantity
+Mon,Pen,10,5
+Tue,Pencil,5,10
+Wed,Pen,10,
+Thu,Notebook,50,2
+Fri,Pen,,7
+Sat,Pencil,5,8
+Sun,,20,3
+Mon,Notebook,50,
+Tue,Pen,10,6
