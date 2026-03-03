@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/ui/css/styles.css?v=20260228b">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Inventory System</a>
+      <div class="navbar-nav">
+        <a class="nav-link active" href="/users-page">Users</a>
+        <a class="nav-link" href="/products-page">Products</a>
+        <a class="nav-link" href="/inventory-page">Inventory</a>
+        <a class="nav-link" href="/orders-page">Orders</a>
+        <a class="nav-link" href="/logs-page">Activity Logs</a>
+      </div>
+      <div class="navbar-nav ms-auto" id="authNav"></div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div id="usersMessage" class="alert d-none"></div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="card page-card">
+          <div class="card-body">
+            <h5 class="section-title">Add User</h5>
+            <form id="userForm">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" id="userName" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="userEmail" required>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="userActive" checked>
+                <label class="form-check-label" for="userActive">Active</label>
+              </div>
+              <button class="btn btn-primary w-100" type="submit">Save User</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card page-card">
+          <div class="card-body">
+            <h5 class="section-title">Users List</h5>
+            <div class="table-responsive">
+              <table class="table table-striped align-middle">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/ui/js/auth_state.js"></script>
+  <script src="/ui/js/common.js"></script>
+  <script src="/ui/js/users.js"></script>
+</body>
+</html>
